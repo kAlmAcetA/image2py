@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+#-*- coding:utf-8 -*-
+
+import sys
+import base64
+from optparse import OptionParser
+from image2py import Converter
+
+VERSION = "0.1.0"
+
+
+def main():
+    parser = OptionParser(usage="usage: %prog [options] file1 file2 ...")
+    parser.version = VERSION
+    parser.add_option('-f', '--file',
+                      dest="filename",
+                      metavar="FILE",
+                      help=("File to which to save. It will be loaded if "
+                            "file exists and contains result of image2py"),
+                      default=None)
+    parser.add_option("-t", "--template",
+                      action="store",
+                      dest="template",
+                      default=None,
+                      help="template of output (qt, pyqt, pysie, wx)")
+    (options, args) = parser.parse_args()
+    if len(args) < 1:
+        parser.print_help()
+        sys.exit(0)
+    conv = Converter(options.filename)
+    for item in args:
+        conv.add_file(item)
+    try:
+        if options.filename is None:
+            print(conv.output())
+        else:
+            conv.save(options.filename)
+            print("File has been saved")
+    except Exception as e:
+        print('Error: {!s}'.format(e))
+
+if __name__ == "__main__":
+    main()
