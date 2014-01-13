@@ -89,3 +89,16 @@ class PyQtTemplate(BasicTemplate):
 from PyQt4.QtCore import QByteArray
 from PyQt4.QtGui import QIcon, QPixmap, QImage
 """)
+
+
+lookup_map = {'basic': BasicTemplate,
+              'qt': QtTemplate,
+              'pyside': PySideTemplate,
+              'pyqt': PyQtTemplate}
+
+
+def templateByName(name):
+    cname = name.strip().lower().replace('template', '')
+    if cname not in lookup_map:
+        raise Exception('Given template does not exist.')
+    return lookup_map[cname]

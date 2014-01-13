@@ -15,8 +15,16 @@ class Converter(object):
             self.load_file(input_file)
 
     def load_file(self, input_file):
-        # TODO
-        pass
+        """
+        import importlib.machinery
+        loader = importlib.machinery.SourceFileLoader("image2py_taf",
+                                                      input_file)
+        pyimg = loader.load_module("image2py_taf")
+        """
+        import imp
+        pyimg = imp.load_source('image2py_taf', input_file)
+        self.files = pyimg.data
+        self.set_toolkit(templates.templateByName(pyimg.template))
 
     def set_template(self, template):
         self.template = template

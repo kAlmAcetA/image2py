@@ -4,16 +4,10 @@
 import sys
 import base64
 from optparse import OptionParser
-from image2py import Converter
+from image2py import Converter, templates
 from image2py.templates import BasicTemplate, QtTemplate, PySideTemplate, PyQtTemplate
 VERSION = "0.1.0"
 
-template_lookup = {
-    'basic': BasicTemplate,
-    'qt': QtTemplate,
-    'pyside': PySideTemplate,
-    'pyqt': PyQtTemplate
-}
 
 def main():
     parser = OptionParser(usage="usage: %prog [options] file1 file2 ...")
@@ -33,18 +27,12 @@ def main():
     if len(args) < 1:
         parser.print_help()
         sys.exit(0)
-    conv = Converter(options.filename)
-    if options.template is not None:
-        clear_template = options.template.strip().lower()
-        if clear_template in template_lookup.keys():
-            conv.set_template(template_lookup[clear_template]())
-        else:
-            print('Wrong template given - {}'.format(options.template))
-            print('Supported templates are: BASIC, QT, PYSIDE, PYQT')
-            sys.exit(0)
-    for item in args:
-        conv.add_file(item)
     try:
+        conv = Converter(options.filename)
+        if options.template is not None:
+            conv.set_template(templates.templateByName(options.template)())
+        for item in args:
+            conv.add_file(item)
         if options.filename is None:
             print(conv.output())
         else:
