@@ -3,7 +3,7 @@
 
 import os
 import base64
-import templates
+from . import templates
 
 
 class Converter(object):
