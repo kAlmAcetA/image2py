@@ -1,4 +1,5 @@
 import i2p
+import templates
 
 Converter = i2p.Converter
-BasicTemplate = i2p.BasicTemplate
+templates = templates
