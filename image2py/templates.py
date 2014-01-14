@@ -20,7 +20,7 @@ class BasicTemplate(object):
         while data:
             part = data[:70]
             data = data[70:]
-            output.append('    "{!s}" '.format(part.decode()))
+            output.append('    "{!s}" '.format(part))
         return "\\\n".join(output)
 
     def part_imports(self):
@@ -101,4 +101,4 @@ def templateByName(name):
     cname = name.strip().lower().replace('template', '')
     if cname not in lookup_map:
         raise Exception('Given template does not exist.')
-    return lookup_map[cname]
+    return lookup_map[cname]()

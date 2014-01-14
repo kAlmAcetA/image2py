@@ -4,6 +4,7 @@
 import os
 import base64
 from . import templates
+import imp
 
 
 class Converter(object):
@@ -21,7 +22,6 @@ class Converter(object):
                                                       input_file)
         pyimg = loader.load_module("image2py_taf")
         """
-        import imp
         pyimg = imp.load_source('image2py_taf', input_file)
         self.files = pyimg.data
         self.set_template(templates.templateByName(pyimg.template))
@@ -32,8 +32,9 @@ class Converter(object):
     def save(self, filename=None):
         if filename is None:
             raise Exception('Converter#save: Undefined filename')
-        with (open(filename, 'wb')) as f:
-            f.write(self.output())
+        cnt = self.output()
+        with (open(filename, 'wb+')) as f:
+            f.write(cnt.encode('utf-8'))
 
     def add_file(self, fname):
         with (open(fname, 'rb')) as f:

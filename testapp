@@ -30,7 +30,7 @@ def main():
     try:
         conv = Converter(options.filename)
         if options.template is not None:
-            conv.set_template(templates.templateByName(options.template)())
+            conv.set_template(templates.templateByName(options.template))
         for item in args:
             conv.add_file(item)
         if options.filename is None:
@@ -39,7 +39,8 @@ def main():
             conv.save(options.filename)
             print("File has been saved")
     except Exception as e:
+		#		raise
         print('Error: {!s}'.format(e))
-
+        raise
 if __name__ == "__main__":
     main()
