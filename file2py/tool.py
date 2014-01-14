@@ -2,14 +2,13 @@
 #-*- coding:utf-8 -*-
 
 import sys
-import base64
 from optparse import OptionParser
-from file2py import Converter, templates
-from file2py.templates import BasicTemplate, QtTemplate, PySideTemplate, PyQtTemplate
-VERSION = "0.1.0"
+from .conv import Converter
+from . import templates
+VERSION = "0.1.1"
 
 
-def main():
+def run():
     parser = OptionParser(usage="usage: %prog [options] file1 file2 ...")
     parser.version = VERSION
     parser.add_option('-f', '--file',
@@ -43,4 +42,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run()

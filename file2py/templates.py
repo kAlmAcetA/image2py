@@ -47,6 +47,7 @@ class BasicTemplate(object):
 
 # Below are example templates for qt  toolkit
 
+
 class QtTemplate(BasicTemplate):
 
     def part_imports(self):
