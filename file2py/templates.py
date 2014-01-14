@@ -45,6 +45,7 @@ class BasicTemplate(object):
                   "\n\n".join(self._part_func)]
         return "\n\n\n".join(blocks)
 
+# Below are example templates for qt  toolkit
 
 class QtTemplate(BasicTemplate):
 

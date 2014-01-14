@@ -1,5 +1,5 @@
-from . import i2p
+from . import conv
 from . import templates
 
-Converter = i2p.Converter
+Converter = conv.Converter
 templates = templates

@@ -4,8 +4,8 @@
 import sys
 import base64
 from optparse import OptionParser
-from image2py import Converter, templates
-from image2py.templates import BasicTemplate, QtTemplate, PySideTemplate, PyQtTemplate
+from file2py import Converter, templates
+from file2py.templates import BasicTemplate, QtTemplate, PySideTemplate, PyQtTemplate
 VERSION = "0.1.0"
 
 
@@ -39,7 +39,6 @@ def main():
             conv.save(options.filename)
             print("File has been saved")
     except Exception as e:
-		#		raise
         print('Error: {!s}'.format(e))
 
 
