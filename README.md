@@ -1,2 +1,2 @@
-image2py
+file2py
 ======
