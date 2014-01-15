@@ -99,7 +99,8 @@ class ConverterTest(unittest.TestCase, _Compat):
             manager.read.return_value = 'dummy'.encode()
             self.conv.add_file(self.filename)
             self.assertEqual(len(self.conv.files), 1)
-            self.assertEqual(self.conv.files[self.filename], self.dummybase64)
+            self.assertEqual(self.conv.files[self.filename],
+                             self.dummybase64.encode())
 
     def test_remove_non_existing_file(self):
         self.assertRaises(KeyError, self.conv.remove_file, self.filename)
