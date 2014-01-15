@@ -11,7 +11,19 @@ if not PY3K:
 else:
     builtin_string = 'builtins'
 
-class ConverterTest(unittest.TestCase):
+
+if hasattr(unittest.TestCase, 'assertIsInstance'):
+    class _Compat:
+        pass
+else:
+    class _Compat:
+        def assertIsInstance(self, obj, cls, msg=None):
+            if not isinstance(obj, cls):
+                standardMsg = '%s is not an instance of %r' % (repr(obj), cls)
+                self.fail(self._formatMessage(msg, standardMsg))
+
+
+class ConverterTest(unittest.TestCase, _Compat):
 
     filename = '_fake_FILE'
     content = Mock()
@@ -84,7 +96,7 @@ class ConverterTest(unittest.TestCase):
         mock_open = MagicMock()
         with patch(builtin_string + '.open', mock_open):
             manager = mock_open.return_value.__enter__.return_value
-            manager.read.return_value = 'dummy'
+            manager.read.return_value = 'dummy'.encode()
             self.conv.add_file(self.filename)
             self.assertEqual(len(self.conv.files), 1)
             self.assertEqual(self.conv.files[self.filename], self.dummybase64)
