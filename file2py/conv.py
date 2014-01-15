@@ -39,7 +39,11 @@ class Converter(object):
         :param template TEmplate instance
         :type instance of BasicTemplate
         """
-        self.template = template
+        if isinstance(template, templates.BasicTemplate):
+            self.template = template
+        else:
+            raise TypeError('converter#set_template:'
+                            'Template must inherit from BasicTemplate')
 
     def save(self, filename=None):
         """ Generates output and saves to given file
@@ -48,7 +52,7 @@ class Converter(object):
         :type str or unicode
         """
         if filename is None:
-            raise Exception('Converter#save: Undefined filename')
+            raise IOError('Converter#save: Undefined filename')
         cnt = self.output()
         with (open(filename, 'wb+')) as f:
             f.write(cnt.encode('utf-8'))
