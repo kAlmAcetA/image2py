@@ -5,7 +5,7 @@ import sys
 from optparse import OptionParser
 from .conv import Converter
 from . import templates
-VERSION = "0.1.1"
+VERSION = "0.2.0"
 
 
 def run():
