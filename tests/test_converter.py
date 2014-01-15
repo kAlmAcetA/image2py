@@ -1,9 +1,15 @@
 #-*- coding:utf-8 -*-
 import unittest
 from mock import patch, Mock, MagicMock
-
 from file2py import Converter, templates
+import sys
 
+PY3K = sys.version_info[0] == 3
+
+if not PY3K:
+    builtin_string = '__builtin__'
+else:
+    builtin_string = 'builtins'
 
 class ConverterTest(unittest.TestCase):
 
@@ -76,7 +82,7 @@ class ConverterTest(unittest.TestCase):
 
     def test_add_existing_file(self):
         mock_open = MagicMock()
-        with patch('__builtin__.open', mock_open):
+        with patch(builtin_string + '.open', mock_open):
             manager = mock_open.return_value.__enter__.return_value
             manager.read.return_value = 'dummy'
             self.conv.add_file(self.filename)
