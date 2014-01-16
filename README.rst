@@ -112,6 +112,31 @@ Qt, PySide, PyQt templates provide additional functions:
 -  ``getAsQIcon(filename)`` returns data as QtGui.QIcon object
 -  ``getAsQImage(filename)`` returns data as QtGui.QImage object
 
+file2py as a module
+===================
+
+**file2py** provide two objects:
+
+1. ``Converter``
+2. ``templates`` (submodule contaning ``BasicTemplate``, ``QtTemplate``, ...)
+
+All templates should should extend ``BasicTemplate``. For more information see docstrings:). 
+
+Contributing
+============
+
+1. Fork https://github.com/kAlmAcetA/file2py
+2. Improve
+3. Pull request
+
+Todo
+====
+
+* more tests
+* more templates
+* add *delete* to command line tool
+
+
 License
 =======
 
