@@ -1,10 +1,9 @@
 file2py
 =======
 
-.. figure:: https://travis-ci.org/kAlmAcetA/file2py.png?branch=master
-   :alt: image alt
-
+.. image:: https://travis-ci.org/kAlmAcetA/file2py.png?branch=master   :target: https://travis-ci.org/kAlmAcetA/file2py
    image alt
+
 Introduction
 ============
 
