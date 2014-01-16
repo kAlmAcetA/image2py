@@ -8,7 +8,7 @@ except ImportError:
 setup(
     name="file2py",
     packages=['file2py'],
-    version="0.2.0",
+    version="0.2.1",
     author="Krzysztof Warunek",
     author_email="kalmaceta@gmail.com",
     description="Allows to include/manage binary files in python source file.",
