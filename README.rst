@@ -1,8 +1,10 @@
 file2py
 =======
 
-.. image:: https://travis-ci.org/kAlmAcetA/file2py.png?branch=master   :target: https://travis-ci.org/kAlmAcetA/file2py
-   image alt
+|image0|_
+
+.. |image0| image:: https://api.travis-ci.org/kAlmAcetA/file2py.png?branch=master
+.. _image0: https://travis-ci.org/kAlmAcetA/file2py
 
 Introduction
 ============
