@@ -37,12 +37,12 @@ class BasicTemplate(object):
         self.part_imports()
         self.part_functions()
         self.part_files(files)
-        header = "# created with image2py\n" \
+        header = "# generated with file2py\n" \
                  "template = '{!s}'".format(self.__class__.__name__)
         blocks = [header,
                   "\n".join(self._part_imports),
                   "\n\n".join(self._part_files),
-                  "\n\n".join(self._part_func)]
+                  "\n\n\n".join(self._part_func)]
         return "\n\n\n".join(blocks)
 
 # Below are example templates for qt  toolkit
@@ -64,9 +64,10 @@ except:
     def part_functions(self):
         super(QtTemplate, self).part_functions()
         self._part_func += [
-            "def getAsQByteArray(n):\n    QByteArray.fromBase64(data[n])",
-            "def getAsQPixmap(n):\n    p = QPixmap\n"
-            "    p.loadFromData(getAsQByteArray(n))\n    return p",
+            "def getAsQByteArray(n):\n"
+            "    return QByteArray.fromBase64(data[n])",
+            "def getAsQPixmap(n):\n"
+            "    return QPixmap.fromImage(getAsQImage(n))",
             "def getAsQIcon(n):\n    return QIcon(getAsQPixmap(n))",
             "def getAsQImage(n):\n"
             "    return QImage.fromData(getAsQByteArray(n))"
