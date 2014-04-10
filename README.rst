@@ -51,7 +51,7 @@ and files to add:
 
     file2py -f my_first.py some.jpg some.png
 
-There is alias image2py which do the pretty mch the same:
+There is alias image2py which do the pretty much the same:
 
 ::
 
