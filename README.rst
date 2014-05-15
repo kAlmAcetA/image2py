@@ -97,7 +97,7 @@ Using results
     ['one.jpg', 'three.gif', 'two.png']
     >>> my_imgs.get_data('one.jpg') #get file's data (base64 encoded)
     # some base64 data
-    >>> my_imgs.get_encoded('one.jpg') #get file's data (raw, base64 decoded)
+    >>> my_imgs.get_decoded('one.jpg') #get file's data (raw, base64 decoded)
     # some raw data
     >>> my_imgs.template #holds used template
     'BasicTemplate'
