@@ -9,7 +9,7 @@ file2py
 Introduction
 ============
 
-Introduction **file2py** is a module that helps to handle of conversion
+Introduction **file2py** is a module that helps to handle conversion of 
 binary (as well as text) files to python's source file. Simply embed it
 base64. Supports adding/deleting files, templates that facilitate the
 further use. It comes with command line tool ``file2py`` and predefined
@@ -99,7 +99,7 @@ Using results
     # some base64 data
     >>> my_imgs.get_decoded('one.jpg') #get file's data (raw, base64 decoded)
     # some raw data
-    >>> my_imgs.template #holds used template
+    >>> my_imgs.template #holds the name of template
     'BasicTemplate'
     >>> my_imgs.data #holds data dict
 
@@ -121,7 +121,7 @@ file2py as a module
 1. ``Converter``
 2. ``templates`` (submodule contaning ``BasicTemplate``, ``QtTemplate``, ...)
 
-All templates should should extend ``BasicTemplate``. For more information see docstrings:). 
+All templates should extend ``BasicTemplate``. For more information see docstrings:). 
 
 Contributing
 ============
