@@ -3,8 +3,8 @@ file2py
 
 |image0|_
 
-.. |image0| image:: https://api.travis-ci.org/kAlmAcetA/file2py.png?branch=master
-.. _image0: https://travis-ci.org/kAlmAcetA/file2py
+.. |image0| image:: https://api.travis-ci.org/kwarunek/file2py.png?branch=master
+.. _image0: https://travis-ci.org/kwarunek/file2py
 
 Introduction
 ============
@@ -22,19 +22,19 @@ You can use pip:
 
 ::
 
-    sudo pip install file2py
+    pip install file2py
 
 or directly from Github
 
 ::
 
-    sudo pip install git+https://github.com/kAlmAcetA/file2py.git
+    pip install git+https://github.com/kwarunek/file2py.git
 
 or manually
 
 ::
 
-    git clone https://github.com/kAlmAcetA/file2py.git
+    git clone https://github.com/kwarunek/file2py.git
     cd file2py
     python setup.py install
 
@@ -126,7 +126,7 @@ All templates should extend ``BasicTemplate``. For more information see docstrin
 Contributing
 ============
 
-1. Fork https://github.com/kAlmAcetA/file2py
+1. Fork https://github.com/kwarunek/file2py
 2. Improve
 3. Pull request
 

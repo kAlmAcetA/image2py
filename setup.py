@@ -8,13 +8,13 @@ except ImportError:
 setup(
     name="file2py",
     packages=['file2py'],
-    version="0.2.3",
+    version="0.2.4",
     author="Krzysztof Warunek",
-    author_email="kalmaceta@gmail.com",
+    author_email="krzysztof@warunek.net",
     description="Allows to include/manage binary files in python source file.",
     license="MIT",
     keywords="binary, converter, pyside, qt, pyqt, file2py",
-    url="https://github.com/kAlmAcetA/file2py",
+    url="https://github.com/kwarunek/file2py",
     long_description='Allows to include/manage binary files in python source file.',
     scripts=['scripts/file2py', 'scripts/image2py'],
     classifiers=[
